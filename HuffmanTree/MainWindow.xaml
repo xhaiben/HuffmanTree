@@ -1,0 +1,133 @@
+﻿<Window x:Class="HuffmanTree.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HuffmanTree"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="531" Width="860" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="FontIcno" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="/HuffmanTree;component/Resources/#iconfont"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="Height" Value="120"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+            <Setter Property="FontSize" Value="70"></Setter>
+            <Setter Property="TextAlignment" Value="Left"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="ChatIcno" TargetType="TextBlock">
+
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="Height" Value="120"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+            <Setter Property="FontSize" Value="70"></Setter>
+            <Setter Property="TextAlignment" Value="Left"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid  Margin="0,0,0,0" HorizontalAlignment="Left" Width="860" Background="#FF2C77B8">
+        <Grid Grid.Row="0" x:Name="TitleBar" MouseMove="TitleBar_MouseMove" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="860" Background="#FF2F97D6">
+
+
+            <Image x:Name="image" HorizontalAlignment="Left" Height="35" Margin="5,0,0,0" VerticalAlignment="Top" Width="35" Source="Resources/green_tree_environment_64px_1168037_easyicon.net.png" />
+
+            <TextBlock Text="Huffman Tree" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="45,7.975" Width="110" FontFamily="Consolas" Foreground="#FFEAEFF3"/>
+            <Image x:Name="Close_Icon" MouseEnter="Close_Icon_MouseEnter"  
+                   
+                Source="Resources/x_57.792147806005px_1152546_easyicon.net副本4.png" Margin="0,5,10,5" HorizontalAlignment="Right" Width="25" 
+                Visibility="Visible"/>
+            <Image x:Name="Close_Icon1" MouseLeave="Close_Icon1_MouseLeave" MouseLeftButtonUp="Close_Icon1_MouseLeftButtonUp" Source="Resources/x_57.792147806005px_1152546_easyicon.net副本3.png" Margin="0,5,10,5" HorizontalAlignment="Right" Width="25"
+                Visibility="Hidden"/>
+
+        </Grid>
+        <Grid x:Name="mainPage" HorizontalAlignment="Left" Height="496" VerticalAlignment="Top" Width="860" Margin="0,35,0,0" d:IsHidden="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="157*"/>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="158*"/>
+            </Grid.ColumnDefinitions>
+            <RichTextBox x:Name="richTextBox1" HorizontalAlignment="Left"  Width="150" Background="#FF5FD9CD" Height="243" Margin="52,45,0,208" FontSize="20" Foreground="White" FontFamily="Consolas" >
+                <FlowDocument LineHeight="1">
+                    <Paragraph/>
+                </FlowDocument>
+            </RichTextBox>
+            <RichTextBox x:Name="richTextBox2" HorizontalAlignment="Left"  Width="150" Height="243" Margin="-60,45,0,208" Background="#FFEAF786" Foreground="#FF6666FF" FontSize="20"
+                         IsReadOnly="True" Grid.Column="1" d:LayoutOverrides="HorizontalAlignment" FontFamily="Consolas">
+                <FlowDocument LineHeight="1">
+                    <Paragraph/>
+                </FlowDocument>
+            </RichTextBox>
+            <RichTextBox x:Name="richTextBox3" Height="243" Margin="0,45,-62,208" Grid.Column="1" Background="#FFFFB5A1" FontSize="20" Foreground="#FF006699"
+                         IsReadOnly="True" HorizontalAlignment="Right" Width="150" FontFamily="Consolas">
+                <FlowDocument LineHeight="1">
+                    <Paragraph/>
+                </FlowDocument>
+            </RichTextBox>
+            <RichTextBox x:Name="richTextBox4" Height="243" Margin="114,45,53,208" Grid.Column="2" Background="#FFB8FFB8" Foreground="Black" FontSize="20"
+                         IsReadOnly="True" FontFamily="Consolas">
+                <FlowDocument LineHeight="1">
+                    <Paragraph/>
+                </FlowDocument>
+            </RichTextBox>
+            <Button x:Name="button5" Content="清空数据" Click="botton5_click" Height="25" HorizontalAlignment="Left" Margin="103,345,0,0" VerticalAlignment="Top" Width="90"  Visibility="Hidden"/>
+
+
+            <TextBlock x:Name="icoButton1" MouseLeftButtonDown="icoButton1_MouseLeftButtonDown" MouseEnter="icoButton1_MouseEnter" MouseLeave="icoButton1_MouseLeave" Style="{StaticResource  FontIcno}" Text="&#xe60d;" Margin="0,0,72,79" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="72" Width="72" Grid.Column="1" Foreground="Black" RenderTransformOrigin="3.889,1.181"
+                       Cursor="Hand"/>
+            <TextBlock x:Name="icoButton2" MouseLeftButtonDown="icoButton2_MouseLeftButtonDown" MouseEnter="icoButton2_MouseEnter" MouseLeave="icoButton2_MouseLeave" Style="{StaticResource  FontIcno}" Text="&#xe635;" Margin="30,0,214,79" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="72" Width="Auto" RenderTransformOrigin="0.444,0.555" Grid.Column="2"
+                       Cursor="Hand"/>
+            <TextBlock x:Name="icoButton3" MouseLeftButtonDown="botton5_click" MouseEnter="icoButton3_MouseEnter" MouseLeave="icoButton3_MouseLeave" Style="{StaticResource  FontIcno}" Text="&#xe670;" Margin="0,0,12,79" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="72" Width="72" RenderTransformOrigin="0.444,0.555" Cursor="Hand"/>
+            <TextBlock x:Name="icoButtonChat" MouseLeftButtonDown="icoButtonChat_MouseLeftButtonDown" MouseEnter="icoButtonChat_MouseEnter" MouseLeave="icoButtonChat_MouseLeave" Style="{StaticResource  FontIcno}" Text="&#xe601;" Margin="72,0,0,79" VerticalAlignment="Bottom" Height="72" RenderTransformOrigin="0.444,0.555" Cursor="Hand" HorizontalAlignment="Left" Width="72"/>
+            <TextBlock x:Name="icoButtonTree" MouseLeftButtonDown="icoButtonTree_MouseLeftButtonDown" MouseEnter="icoButtonTree_MouseEnter" MouseLeave="icoButtonTree_MouseLeave" Style="{StaticResource  FontIcno}" Text="&#xf01e3;" Margin="189,0,55,79" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="72" Width="72" RenderTransformOrigin="3.181,0.444" Cursor="Hand" Grid.Column="2" />
+        </Grid>
+        <Grid x:Name="comparePage" HorizontalAlignment="Left" Height="496" VerticalAlignment="Top" Width="860" Margin="0,35,0,0" d:IsHidden="True" >
+            <RichTextBox x:Name="richTextBox5" HorizontalAlignment="Left"  Width="150" Height="243" Margin="254,45,0,208" Background="#FF5FD9CD" Foreground="White" FontSize="20"
+                IsReadOnly="False" FontFamily="Consolas">
+                <FlowDocument LineHeight="1">
+                    <Paragraph/>
+                </FlowDocument>
+            </RichTextBox>
+            <RichTextBox x:Name="richTextBox6" Height="243" Margin="0,45,254,208" Background="#FFB8FFB8" FontSize="20" Foreground="Black"
+                IsReadOnly="False" HorizontalAlignment="Right" Width="150" FontFamily="Consolas">
+                <FlowDocument LineHeight="1">
+                    <Paragraph/>
+                </FlowDocument>
+            </RichTextBox>
+            <TextBlock x:Name="icoButtonBack" MouseLeftButtonDown="icoButtonBack_MouseLeftButtonDown" MouseEnter="icoButtonBack_MouseEnter" MouseLeave="icoButtonBack_MouseLeave" Style="{StaticResource  FontIcno}" Text="&#xf000c;" Margin="565,0,224,79" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="72" Width="72" RenderTransformOrigin="3.181,0.444" Cursor="Hand" />
+
+
+        </Grid>
+        <Grid x:Name="treePage" HorizontalAlignment="Left" Height="496" VerticalAlignment="Top" Width="860" Margin="0,35,0,0" Visibility="Visible" d:IsHidden="True">
+
+            <Canvas x:Name="treeCanvas" Height="496" Width="860" Margin="2,0,-2,0"/>
+            <TextBlock x:Name="icoButtonBack2" MouseLeftButtonDown="icoButtonBack2_MouseLeftButtonDown" MouseEnter="icoButtonBack2_MouseEnter" MouseLeave="icoButtonBack2_MouseLeave"  Style="{StaticResource  FontIcno}" Text="&#xf000c;" Margin="734,0,54,392" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="72" Width="72" RenderTransformOrigin="3.181,0.444" Cursor="Hand" />
+            <Label x:Name="labelDemo" FontFamily="/HuffmanTree;component/Resources/#iconfont" Visibility="Hidden">
+
+            </Label>
+
+        </Grid>
+        <Grid x:Name="chatPage" HorizontalAlignment="Left" Height="496" VerticalAlignment="Top" Width="860" Margin="0,35,0,0" Visibility="Visible">
+
+            <RichTextBox x:Name="richTextBoxRecode" Margin="167,21,257,226" Background="#FFEAF786" FontFamily="Consolas" FontSize="20" IsReadOnly="False">
+                <FlowDocument LineHeight="1">
+                    <Paragraph/>
+                </FlowDocument>
+            </RichTextBox>
+            <RichTextBox x:Name="richTextBoxMsg"  KeyDown="richTextBoxMsg_KeyDown" Margin="167,0,257,122.5" Height="104" VerticalAlignment="Bottom" Background="#FFFFB5A1" FontFamily="Consolas" FontSize="20">
+                <FlowDocument LineHeight="1">
+                    <Paragraph/>
+                </FlowDocument>
+            </RichTextBox>
+            
+            <TextBlock x:Name="icoButtonBack3" MouseLeftButtonDown="icoButtonBack3_MouseLeftButtonDown" MouseEnter="icoButtonBack3_MouseEnter" MouseLeave="icoButtonBack3_MouseLeave" Style="{StaticResource  FontIcno}" Text="&#xf000c;" Margin="709,0,79,61" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="72" Width="72" RenderTransformOrigin="3.181,0.444" Cursor="Hand" />
+            <TextBlock x:Name="icoButtonPush" MouseLeftButtonDown="icoButtonPush_MouseLeftButtonDown" MouseEnter="icoButtonPush_MouseEnter"
+                  MouseLeave="icoButtonPush_MouseLeave" Style="{StaticResource FontIcno}" Text="&#xe6a7;" Margin="517.667,0,270.332,32" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="72" Width="72" RenderTransformOrigin="3.181,0.444" Cursor="Hand" />
+
+        </Grid>
+    </Grid>
+
+</Window>
